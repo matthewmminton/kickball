@@ -1,0 +1,21 @@
+<% require 'csv' %>
+
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Simpson Slammers</title>
+    </head>
+
+    <body>
+      <h1>Simpson Slammers</h1>
+      <br>
+        <% CSV.foreach("lackp_starting_rosters.csv", headers: true) do |row| %>
+          <% if row[3] == "Simpson Slammers" %>
+            <p><%= "#{row[0]} #{row[1]} #{row[2]}" %></p>
+          <% end %>
+        <% end %>
+
+
+    </body>
+  </html>
+
