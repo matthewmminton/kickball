@@ -1,0 +1,19 @@
+<% require 'csv' %>
+
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Flinestone Fire</title>
+    </head>
+
+    <body>
+      <h1>Flinestone Fire</h1>
+        <% CSV.foreach("views/lackp_starting_rosters.csv", headers: true) do |row| %>
+          <% if row[3] == "Flinestone Fire" %>
+            <p><%= "#{row[0]} #{row[1]} #{row[2]}" %></p>
+          <% end %>
+        <% end %>
+
+
+    </body>
+  </html>
