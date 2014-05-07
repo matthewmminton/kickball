@@ -1,3 +1,5 @@
+<% require 'csv' %>
+
 <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -6,5 +8,11 @@
 
     <body>
       <h1><%= @team %></h1>
+
+      <% CSV.foreach('views/lackp_starting_rosters.csv', headers: true) do |row| %>
+        <% if row[3] == @team %>
+          <p><%= "#{row[0]} #{row[1]} #{row[2]}" %></p>
+        <% end %>
+      <% end %>
     </body>
   </html>
