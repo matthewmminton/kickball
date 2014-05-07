@@ -1,0 +1,18 @@
+<% require 'csv' %>
+
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title><%= @position %></title>
+    </head>
+
+    <body>
+      <h1><%= @position %></h1>
+
+      <% CSV.foreach('views/lackp_starting_rosters.csv', headers: true) do |row| %>
+        <% if row[2] == @position %>
+          <p><%= "#{row[0]} #{row[1]} #{row[3]}" %></p>
+        <% end %>
+      <% end %>
+    </body>
+  </html>
